@@ -13,7 +13,7 @@ test releases
 
 ```sh
 curl -s -X GET https://api.github.com/repos/jmcmaster05/release-automation/releases | jq '.[].id'
-```sh
+```
 
 >      13643735
 >      13643690
