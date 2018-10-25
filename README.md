@@ -45,3 +45,27 @@ curl -s -X GET https://api.github.com/repos/jmcmaster05/release-automation/relea
 >      ...
 >        "body": "initial release for testing"
 >      }
+
+
+
+
+## Misc
+
+curl -v --request POST \
+  --url https://api.github.com/repos/the-container-store/%tcs.git_repo_name%/releases?access_token=%system.github.access.token% \
+  --header 'Content-Type: application/json' \
+  --header 'authToken:%system.github.access.token%' \
+  --data '{
+  "tag_name": "%build.number%",
+  "target_commitish": "%build.vcs.number%",
+  "name": "%tcs.git_repo_name% %build.number%",
+  "body": "Description of the release",
+  "draft": false,
+  "prerelease": true
+}'
+
+version=%build.number%
+
+# Create the tag and push it to GitHub
+git tag -a -m "Release $version" $version
+git push origin $version:$version
