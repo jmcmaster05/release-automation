@@ -52,7 +52,7 @@ curl -s -X GET https://api.github.com/repos/jmcmaster05/release-automation/relea
 ## Misc
 
 curl -v --request POST \
-  --url https://api.github.com/repos/the-container-store/%tcs.git_repo_name%/releases?access_token=%system.github.access.token% \
+  --url https://api.github.com/repos/jmcmaster05/%tcs.git_repo_name%/releases?access_token=%system.github.access.token% \
   --header 'Content-Type: application/json' \
   --header 'authToken:%system.github.access.token%' \
   --data '{
